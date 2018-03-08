@@ -1,0 +1,2 @@
+# openweather-client
+Recruitment task
