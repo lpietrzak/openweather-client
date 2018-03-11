@@ -10,7 +10,10 @@ To build and run this project you need to have:
  
 ## Build and running
 
-Build application gradle clean build bootJar
+Build application 
+```
+gradle clean build bootJar
+```
 
 Run project you can use:
  * gradle (gradle bootRun)
