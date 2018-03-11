@@ -11,6 +11,7 @@ To build and run this project you need to have:
 ## Build and running
 
 Build application gradle clean build bootJar
+
 Run project you can use:
  * gradle (gradle bootRun)
  * java -jar build/libs/openweather-client-0.0.1-SNAPSHOT.jar
