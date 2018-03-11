@@ -12,7 +12,7 @@ To build and run this project you need to have:
 
 Build application 
 ```
-gradle clean build bootJar
+gradlew clean build bootJar
 ```
 
 Run project you can use:
