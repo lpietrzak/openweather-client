@@ -27,11 +27,11 @@ public class ReportService {
 			LOGGER.info("Temperatur {}, humidity {}, preasuer {}", item.getMain().getTemp(),
 					item.getMain().getHumidity(), item.getMain().getPressure());
 			aveTemp.addAndGet(item.getMain().getTemp());
-			LOGGER.info("Temp -> {}", aveTemp.get());
+			LOGGER.debug("Temp -> {}", aveTemp.get());
 			aveHumidity.addAndGet(item.getMain().getHumidity());
-			LOGGER.info("Humidity -> {}", aveHumidity.get());
+			LOGGER.debug("Humidity -> {}", aveHumidity.get());
 			avePreasuer.addAndGet(item.getMain().getPressure());
-			LOGGER.info("Preasure -> {}", avePreasuer.get());
+			LOGGER.debug("Preasure -> {}", avePreasuer.get());
 			counter.incrementAndGet();
 
 		});
