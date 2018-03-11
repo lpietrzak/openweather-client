@@ -16,7 +16,7 @@ gradlew clean build bootJar
 ```
 
 Run project you can use:
- * gradle (gradle bootRun)
+ * gradle (gradlew bootRun)
  * java -jar build/libs/openweather-client-0.0.1-SNAPSHOT.jar
  
 After successful start please open webbrowser and paste this link http://localhost:8080/report?city=Warsaw&countryCode=PL 
