@@ -22,6 +22,7 @@ repositories {
 ext {
 	springCloudVersion = 'Finchley.M8'
 	caffeineVersion = '2.6.2'
+	guavaVersion = '24.0-jre'
 }
 
 dependencies {
@@ -29,7 +30,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile("com.github.ben-manes.caffeine:caffeine:${caffeineVersion}")
 	compile('org.springframework.cloud:spring-cloud-starter-openfeign')
-	
+	compile("com.google.guava:guava:${guavaVersion}");
+
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 

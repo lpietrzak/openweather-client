@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capsilon.recruitment.model.City;
 import com.capsilon.recruitment.model.CityReport;
 import com.capsilon.recruitment.openweathermap.OpenWeatherMapClient;
 
@@ -27,18 +28,15 @@ public class WeatherService {
 	@Autowired
 	private OpenWeatherMapClient openWeatherMapClient;
 
+	@Autowired
+	private ReportService reportService;
+
 	@Cacheable
 	@RequestMapping(method = RequestMethod.GET, path = "/report", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public CityReport report(@RequestParam("city") String city, @RequestParam("countryCode") String countryCode) {
-		LOGGER.info("Start generate report for city {} and country code {}", city, countryCode);
-		String result = openWeatherMapClient.getWeatherData(city, countryCode);
-		// Calculate all necessary data
-
-		// Build result
-		CityReport cityReport = new CityReport();
-
-		return cityReport.withCityName(city).withCountryCode(countryCode).withAverageTemperature("10d")
-				.withAverageHumidity("10d").withAveragePressure("19");
+	public CityReport report(@RequestParam("city") String cityName, @RequestParam("countryCode") String countryCode) {
+		LOGGER.info("Start generate report for city {} and country code {}", cityName, countryCode);
+		City city = openWeatherMapClient.getWeatherData(cityName + "," + countryCode, apiKey);
+		return reportService.report(city).withCityName(cityName).withCountryCode(countryCode);
 	}
 
 }
